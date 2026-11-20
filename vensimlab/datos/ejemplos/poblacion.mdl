@@ -1,0 +1,37 @@
+{UTF-8}
+Poblacion = INTEG(Nacimientos - Defunciones, 1000)
+~ personas
+~ Habitantes de la ciudad.
+|
+Nacimientos = Poblacion * Tasa natalidad
+~ personas/Year
+~ Flujo de entrada.
+|
+Defunciones = Poblacion * Tasa mortalidad
+~ personas/Year
+~ Flujo de salida.
+|
+Tasa natalidad = 0.03
+~ 1/Year
+~ Proporcion anual de nacimientos.
+|
+Tasa mortalidad = 0.01
+~ 1/Year
+~ Proporcion anual de defunciones.
+|
+INITIAL TIME = 0
+~ Year
+~ Inicio.
+|
+FINAL TIME = 50
+~ Year
+~ Fin.
+|
+TIME STEP = 0.25
+~ Year
+~ Paso de integracion.
+|
+SAVEPER = TIME STEP
+~ Year
+~ Intervalo de salida.
+|
