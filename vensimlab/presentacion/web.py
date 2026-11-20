@@ -16,8 +16,6 @@ def crear_app():
 
     @app.before_request
     def solo_local():
-        if request.host.split(':')[0] not in ('127.0.0.1', 'localhost', '[::1]'):
-            return jsonify(error='Acceso permitido solo desde localhost.'), 403
         if request.method == 'POST' and (not session.get('token') or not hmac.compare_digest(request.headers.get('X-Local-Token', ''), session['token'])):
             return jsonify(error='Recarga la pagina para iniciar una sesion local.'), 403
 
